@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import pyperclip
 
 from .config import Configuration
 from .util.color import Color
@@ -9,6 +10,7 @@ from .attack.bruteForce import bruteForceAttack
 from .attack._random import randomAttack
 from .attack.randomSmart import randomSmartAttack
 from .attack.dictionary import dictionaryAttack
+from .auto import autoRun
 
 class Experiment():
   def __init__(self):
@@ -60,11 +62,19 @@ class Experiment():
         times.append(runTime)
         password.time = runTime
         Color.p(f"[+] [{count+1}/{len(self.passwords)}]: Time: {runTime}")
+        pyperclip.copy(runTime)
       Color.p("[!] Done!")
       Color.p(f"[*] Average Time: {sum(times)/len(self.passwords)}")
-    
+
+      self.reset()
+      
     if cmd == "autorun":
-      pass
+      autoRun()
+
+  def reset(self):
+    for password in self.passwords:
+      password.time = 0.0
+      password.cracked = False
 
   def start(self):
     while self.running:

@@ -1,0 +1,8 @@
+Method, Type, Length, Avg Time
+brute, digit, 1, 8.363723754882812e-06
+brute, digit, 2, 2.1052360534667968e-05
+brute, digit, 3, 0.00013697624206542968
+brute, digit, 4, 0.0015658950805664063
+brute, digit, 5, 0.016118030548095703
+brute, digit, 6, 0.15880534172058106
+brute, digit, 7, 1.6898417282104492
